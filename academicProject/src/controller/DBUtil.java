@@ -1,4 +1,4 @@
-package Controller;
+package controller;
 
 import java.sql.Connection;
 import java.sql.Date;
@@ -10,8 +10,8 @@ import java.sql.Statement;
 public class DBUtil {
 	static Connection makeConnection() {
 		String ur1 = "jdbc:oracle:thin:@127.0.0.1:1521";
-		String user = "javauser";
-		String pwd = "javauser";
+		String user = "hr";
+		String pwd = "hr";
 		Connection con = null;
 		try {
 			// 1. 드라이버 로드
@@ -19,7 +19,7 @@ public class DBUtil {
 			
 			// 2. 오라클데이타베이스 연결
 			con = DriverManager.getConnection(ur1,user,pwd);
-			
+			System.out.println("DB 연결 성공");
 		} catch (ClassNotFoundException e) {
 			e.printStackTrace();
 			System.out.println("오라클 적재 실패");
