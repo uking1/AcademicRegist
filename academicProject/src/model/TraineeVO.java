@@ -74,7 +74,7 @@ public class TraineeVO {
 			return false;
 		tvo = (TraineeVO)obj;
 		
-		return tvo.no == this.no && tvo.l_abbre == this.l_abbre;
+		return tvo.no == this.no && tvo.l_abbre.equals(l_abbre);
 	}
 
 	

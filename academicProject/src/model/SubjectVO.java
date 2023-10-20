@@ -65,7 +65,7 @@ public class SubjectVO {
 		if(!(obj instanceof SubjectVO))
 			return false;
 		svo = (SubjectVO) obj;
-		return svo.no == this.no && svo.s_name == this.s_name;
+		return svo.no == this.no && svo.s_name.equals(s_name);
 	}
 
 	@Override

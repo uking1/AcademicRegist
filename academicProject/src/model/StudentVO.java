@@ -14,14 +14,14 @@ public class StudentVO {
 	private String sd_phone; // 핸드폰번호
 	private String sd_address; // 주소
 	private String sd_email; // 이메일
-	private String ds_date; // 등록일
+	private String sd_date; // 등록일
 
 	public StudentVO() {
 		super();
 	}
 
 	public StudentVO(int no, String sd_num,String sd_name ,String sd_id, String sd_passwd, String s_num, String sd_birthday,
-			String sd_phone, String sd_address, String sd_email, String ds_date) {
+			String sd_phone, String sd_address, String sd_email, String sd_date) {
 		super();
 		this.no = no;
 		this.sd_num = sd_num;
@@ -33,7 +33,7 @@ public class StudentVO {
 		this.sd_phone = sd_phone;
 		this.sd_address = sd_address;
 		this.sd_email = sd_email;
-		this.ds_date = ds_date;
+		this.sd_date = sd_date;
 	}
 
 	public int getNo() {
@@ -53,6 +53,9 @@ public class StudentVO {
 
 	public void setSd_num(String sd_num) {
 		this.sd_num = sd_num;
+	}
+	public void setSd_name(String sd_name) {
+		this.sd_num = sd_name;
 	}
 
 	public String getSd_id() {
@@ -111,12 +114,12 @@ public class StudentVO {
 		this.sd_email = sd_email;
 	}
 
-	public String getDs_date() {
-		return ds_date;
+	public String getSd_date() {
+		return sd_date;
 	}
 
-	public void setDs_date(String ds_date) {
-		this.ds_date = ds_date;
+	public void setSd_date(String sd_date) {
+		this.sd_date = sd_date;
 	}
 
 	@Override
@@ -130,7 +133,7 @@ public class StudentVO {
 		if(!(obj instanceof StudentVO))
 			return false;
 		svo = (StudentVO)obj;
-		return svo.no == this.no && svo.sd_num == this.sd_num;
+		return svo.no == this.no && svo.sd_num.equals(obj);
 	}
 	
 	

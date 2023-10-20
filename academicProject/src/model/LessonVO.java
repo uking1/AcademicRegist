@@ -54,7 +54,7 @@ public class LessonVO {
 		if(!(obj instanceof LessonVO))
 			return false;
 		lvo = (LessonVO)obj;
-		return lvo.no == this.no && lvo.l_name == this.l_name;
+		return lvo.no == this.no && lvo.l_name.equals(l_name);
 	}
 	
 	
