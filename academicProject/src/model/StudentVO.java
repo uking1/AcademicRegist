@@ -6,6 +6,7 @@ public class StudentVO {
 
 	private int no; // 학생 일련번호
 	private String sd_num; // 학번
+	private String sd_name; // 이름
 	private String sd_id; // 아이디
 	private String sd_passwd; // 비밀번호
 	private String s_num; // 학과번호
@@ -19,11 +20,12 @@ public class StudentVO {
 		super();
 	}
 
-	public StudentVO(int no, String sd_num, String sd_id, String sd_passwd, String s_num, String sd_birthday,
+	public StudentVO(int no, String sd_num,String sd_name ,String sd_id, String sd_passwd, String s_num, String sd_birthday,
 			String sd_phone, String sd_address, String sd_email, String ds_date) {
 		super();
 		this.no = no;
 		this.sd_num = sd_num;
+		this.sd_name = sd_name;
 		this.sd_id = sd_id;
 		this.sd_passwd = sd_passwd;
 		this.s_num = s_num;
@@ -44,6 +46,9 @@ public class StudentVO {
 
 	public String getSd_num() {
 		return sd_num;
+	}
+	public String getSd_name() {
+		return sd_name;
 	}
 
 	public void setSd_num(String sd_num) {

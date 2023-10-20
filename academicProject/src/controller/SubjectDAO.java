@@ -19,7 +19,7 @@ public class SubjectDAO {
 		SubjectVO sVo = null;
 
 		try {
-			con = DBUtil.makeConnection();
+			con = DBUtil.getConnection();
 			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 
@@ -60,7 +60,7 @@ public class SubjectDAO {
 		PreparedStatement pstmt = null;
 
 		try {
-			con = DBUtil.makeConnection();
+			con = DBUtil.getConnection();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, svo.getS_num());
 			pstmt.setString(2, svo.getS_name());
@@ -96,7 +96,7 @@ public class SubjectDAO {
 		PreparedStatement pstmt = null;
 
 		try {
-			con = DBUtil.makeConnection();
+			con = DBUtil.getConnection();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, svo.getS_num());
 			pstmt.setString(2, svo.getS_name());
@@ -136,7 +136,7 @@ public class SubjectDAO {
 		PreparedStatement pstmt = null;
 
 		try {
-			con = DBUtil.makeConnection();
+			con = DBUtil.getConnection();
 			pstmt = con.prepareStatement(sql.toString());
 			pstmt.setInt(1, no);
 

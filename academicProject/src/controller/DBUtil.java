@@ -1,37 +1,38 @@
 package controller;
 
+import java.io.FileInputStream;
+import java.io.IOException;
 import java.sql.Connection;
 import java.sql.Date;
 import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.Properties;
 
 public class DBUtil {
-	static Connection makeConnection() {
-		String ur1 = "jdbc:oracle:thin:@127.0.0.1:1521";
-		String user = "hr";
-		String pwd = "hr";
+	static final String url = "jdbc:oracle:thin:@127.0.0.1:1521";
+	static final String driver = "oracle.jdbc.driver.OracleDriver";
+
+	public static Connection getConnection() throws Exception {
+
+		Properties properties = new Properties();
 		Connection con = null;
 		try {
-			// 1. 드라이버 로드
-			Class.forName("oracle.jdbc.driver.OracleDriver");
-			
-			// 2. 오라클데이타베이스 연결
-			con = DriverManager.getConnection(ur1,user,pwd);
-			System.out.println("DB 연결 성공");
-		} catch (ClassNotFoundException e) {
-			e.printStackTrace();
-			System.out.println("오라클 적재 실패");
-		} catch (SQLException e) {
-			e.printStackTrace();
-			System.out.println("오라클 접속 실패");
-		}	
+			FileInputStream fis = new FileInputStream("src/config/db.properties");
+			properties.load(fis);
+			String driber = properties.getProperty("driver");
+			String url = properties.getProperty("url");
+			String username = properties.getProperty("username");
+			String password = properties.getProperty("password");
+
+			Class.forName(driver);
+			con = DriverManager.getConnection(url, username, password);
+			System.out.println("연결성공");
+		} catch (IOException e) {
+			System.out.println(e);
+		}
 		return con;
 	}
 
-	public static void main(String[] args) {
-		Connection con = makeConnection();
-		
-	}
 }
