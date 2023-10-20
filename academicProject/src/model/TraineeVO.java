@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class TraineeVO {
 	private int no; // 수강 일련번호
 	private String sd_num; // 학번
@@ -60,4 +62,21 @@ public class TraineeVO {
 		this.t_date = t_date;
 	}
 
+	@Override
+	public int hashCode() {
+		return Objects.hash(l_abbre, no);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		TraineeVO tvo = (TraineeVO) obj;
+		if(!(obj instanceof TraineeVO))
+			return false;
+		tvo = (TraineeVO)obj;
+		
+		return tvo.no == this.no && tvo.l_abbre == this.l_abbre;
+	}
+
+	
+	
 }

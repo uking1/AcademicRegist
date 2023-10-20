@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class SubjectVO {
 
 	private int no; // 학과 일련번호
@@ -45,6 +47,25 @@ public class SubjectVO {
 
 	public void setS_name(String s_name) {
 		this.s_name = s_name;
+	}
+	
+	
+	
+	
+	
+	
+	@Override
+	public int hashCode() {
+		return Objects.hash(no, s_name);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		SubjectVO svo = (SubjectVO) obj;
+		if(!(obj instanceof SubjectVO))
+			return false;
+		svo = (SubjectVO) obj;
+		return svo.no == this.no && svo.s_name == this.s_name;
 	}
 
 	@Override

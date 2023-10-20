@@ -1,5 +1,7 @@
 package model;
 
+import java.util.Objects;
+
 public class LessonVO {
 	private int no; // 과목 일련번호
 	private String l_abbre; // 과목약어
@@ -40,5 +42,22 @@ public class LessonVO {
 	public void setL_name(String l_name) {
 		this.l_name = l_name;
 	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(l_name, no);
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		LessonVO lvo = (LessonVO) obj;
+		if(!(obj instanceof LessonVO))
+			return false;
+		lvo = (LessonVO)obj;
+		return lvo.no == this.no && lvo.l_name == this.l_name;
+	}
+	
+	
+	
 
 }
